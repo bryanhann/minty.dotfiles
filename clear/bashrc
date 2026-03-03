@@ -1,0 +1,9 @@
+#!/bin/bash
+
+dbg () { [ -f ~/DEBUG ] && echo dbg: $* ; }
+src () { [ -f $1 ] && { dbg .  $1 ; . $1 ; } }
+
+dbg ++[${BASH_SOURCE[0]}]
+src ${BASH_SOURCE[0]}.backup
+dbg --[${BASH_SOURCE[0]}]
+

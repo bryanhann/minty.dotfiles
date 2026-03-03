@@ -1,0 +1,11 @@
+#!/bin/bash
+
+dbg ()  { [ -f ~/DEBUG ] && echo dbg: $* ; }
+src ()  { [ -f $1 ]      && dbg . $1 && . $1 ; }
+exit () { echo "try: 'builtin exit'" ; }
+
+dbg ++[${BASH_SOURCE[0]}]
+src ${BASH_SOURCE[0]}.backup
+src ~/.ssh/activate.sh
+dbg --[${BASH_SOURCE[0]}]
+
