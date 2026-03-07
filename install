@@ -1,37 +1,31 @@
+#!/usr/bin/env bash
+
 cd $(dirname $0)
-[ $1. == --force. ] && unzip ./crypt.zip
-[ ! -d ./crypt    ] && unzip ./crypt.zip
+source ${PWD}/lib/init.sh
 
-main () {
-    for pth in ${PWD}/crypt ${PWD}/clear; do
-        for real in $(ls $pth); do
-            _link ${pth}/${real}
-         done
-    done
-    return
-    for name in $(ls $PWD/crypt); do
-        echo $name
-    done
-
-    for name in $(ls $PWD/crypt/dot.*); do
-        echo $name
-    done
+_backup () {
+    local the_original
+    local the_backup
+    the_original=$1
+    the_backup=${BCH_DOTFILES_BACKUP}/$(basename $1)
+    [ -L ${the_original} ] && rm ${the_original} 
+    [ -e ${the_original} ] || return
+    mkdir -p ${BCH_DOTFILES_BACKUP}
+    echo "  move: [${the_original}] -> [${the_backup}]"
+    mv ${the_original} ${the_backup}
 }
+
 _link () {
-    real=${1}
-    link=${HOME}/.$(basename ${real})
-    back=${link}.backup
-    [ -L ${link} ] && rm $link
-    [ -e ${link} ] && echo "  copy [${link}] -> [${back}]"
-    [ -e ${link} ] && mv ${link} ${back}
-    true           && echo "  link [${link}] -> [${real}]"
-    true           && ln -s ${real} ${link}
+    real=$1
+    name=$(basename $1)
+    [ ! ${name:0:1} == . ] && name=.${name}
+    link=${HOME}/${name}
+    _backup ${link}
+    echo "  link [${link}] -> [${real}]"
+    ln -s ${real} ${link}
 }
 
-main 
-exit
-_link profile
-_link bashrc
-_link aws
-_link vim
-_link ssh
+_link ${PWD}/bash/.profile
+_link ${PWD}/bash/.bashrc
+_link ${PWD}/bash/foo.bashrc
+
