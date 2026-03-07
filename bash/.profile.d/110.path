@@ -4,7 +4,6 @@ case ":${PATH}:" in
     *:"$HOME/.local/bin":*)
         ;;
     *)
-        echo lbin
         # Prepending path in case a system-installed binary needs to be overridden
         export PATH="$HOME/.local/bin:$PATH"
         ;;
