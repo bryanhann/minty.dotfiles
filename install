@@ -18,5 +18,13 @@ _link () {
     ln -s ${real} ${link}
 }
 
+_linkall () {
+    for pth in $(ls $1); do
+        _link $1/$pth
+    done
+}
+
 _link ${PWD}/bash/.profile
 _link ${PWD}/bash/.bashrc
+_linkall ${PWD}/clear
+_linkall ${PWD}/crypt
