@@ -3,16 +3,13 @@
 link=${BASH_SOURCE[0]}
 this=$(readlink -f ${link})
 name=$(basename $this)
+source $(dirname $this)/.mylib/init.sh
 
 export BCH_BASH_BASHRC=${this}
-
-[ $1. == -f. ] && unset BCH_BASH_PROFILE
 [ -z ${BCH_BASH_PROFILE} ] && echo warning: .bashrc sourced before .profile
 [ -z ${BCH_BASH_PROFILE} ] && source ~/.profile
 
-source $(dirname $(dirname $this))/lib/init.sh
-
-dot-enter ${this}
-dot-src   ${link}.BACKUP
-dot-src   ${this}.d/init.sh
-dot-exit  ${this}
+_log "++[$this]"
+_src ${link}.BACKUP
+_src ${this}.d/init.sh
+_log "++[$this]"
