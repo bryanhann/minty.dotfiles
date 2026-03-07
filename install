@@ -2,6 +2,8 @@
 
 cd $(dirname $0)
 
+./decrypt
+
 _backup () {
     [ -L ${1} ] && rm ${1}
     [ -e ${1} ] && echo "  move: [${1}] -> [${1}.BACKUP]"

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+cd $(dirname $0)
+
+[ -d ./crypt ] && echo already decrypted
+[ -d ./crypt ] && exit
+
+unzip ./crypt
