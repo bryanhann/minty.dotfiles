@@ -1,3 +1,0 @@
-#!/bin/bash
-source ${BASH_SOURCE[0]}.d/init.sh
-
