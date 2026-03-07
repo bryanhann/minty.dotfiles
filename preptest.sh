@@ -8,5 +8,5 @@ echo this will overwrite dotfiles. Press enter three times to proceed.
 read ; read ; read
 rm ~/.bashrc
 rm ~/.profile
-echo "echo XXX [\${BASH_SOURCE[0]}]" >> ~/.bashrc
-echo "echo XXX [\${BASH_SOURCE[0]}]" >> ~/.profile
+echo "echo XXX [\${BASH_SOURCE[0]}] $1" >> ~/.bashrc
+echo "echo XXX [\${BASH_SOURCE[0]}] $1" >> ~/.profile
