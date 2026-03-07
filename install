@@ -3,14 +3,9 @@
 cd $(dirname $0)
 
 _backup () {
-    local the_original
-    local the_backup
-    the_original=$1
-    the_backup=$1.BACKUP
-    [ -L ${the_original} ] && rm ${the_original} 
-    [ -e ${the_original} ] || return
-    echo "  move: [${the_original}] -> [${the_backup}]"
-    mv ${the_original} ${the_backup}
+    [ -L ${1} ] && rm ${1}
+    [ -e ${1} ] && echo "  move: [${1}] -> [${1}.BACKUP]"
+    [ -e ${1} ] && mv ${1} ${1}.BACKUP
 }
 
 _link () {
@@ -25,4 +20,3 @@ _link () {
 
 _link ${PWD}/bash/.profile
 _link ${PWD}/bash/.bashrc
-
