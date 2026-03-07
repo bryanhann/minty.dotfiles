@@ -1,6 +1,8 @@
 #!usr/bin/env bash
 
-this=$(readlink -f ${BASH_SOURCE[0]})
+link=${BASH_SOURCE[0]}
+this=$(readlink -f ${link})
+#this=$(readlink -f ${BASH_SOURCE[0]})
 name=$(basename $this)
 export BCH_BASH_BASHRC=${this}
 
@@ -11,6 +13,6 @@ export BCH_BASH_BASHRC=${this}
 source $(dirname $(dirname $this))/lib/init.sh
 
 dot-enter ${this}
-dot-src   ${BCH_DOTFILES_BACKUP}/${name}
+dot-src   ${link}.BACKUP
 dot-src   $(dirname $this)/${name#?}
 dot-exit  ${this}

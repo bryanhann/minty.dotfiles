@@ -1,7 +1,6 @@
 #!/bin/bash
 
 export BCH_DOTFILES=$(dirname $(dirname ${BASH_SOURCE[0]}))
-export BCH_DOTFILES_BACKUP=${HOME}/.BCH_DOTFILES_BACKUP
 
 
 dot-dbg ()  {

@@ -1,16 +1,14 @@
 #!/usr/bin/env bash
 
 cd $(dirname $0)
-source ${PWD}/lib/init.sh
 
 _backup () {
     local the_original
     local the_backup
     the_original=$1
-    the_backup=${BCH_DOTFILES_BACKUP}/$(basename $1)
+    the_backup=$1.BACKUP
     [ -L ${the_original} ] && rm ${the_original} 
     [ -e ${the_original} ] || return
-    mkdir -p ${BCH_DOTFILES_BACKUP}
     echo "  move: [${the_original}] -> [${the_backup}]"
     mv ${the_original} ${the_backup}
 }
@@ -27,5 +25,4 @@ _link () {
 
 _link ${PWD}/bash/.profile
 _link ${PWD}/bash/.bashrc
-_link ${PWD}/bash/foo.bashrc
 
