@@ -1,4 +1,6 @@
-_bold () {
+#!/usr/bin/env bash
+
+bold () {
     tput setaf 1
     tput setab 7
     tput bold
