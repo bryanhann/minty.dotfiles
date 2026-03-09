@@ -26,6 +26,7 @@ _linkall () {
 
 _link ${PWD}/bash/.profile
 _link ${PWD}/bash/.bashrc
+_link ${PWD}/bash/.bash_logout
 _linkall ${PWD}/public
 
 [ -d ./bryan ] || git clone git@github.com:bryanhann/bryan
