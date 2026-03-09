@@ -29,6 +29,6 @@ _link ${PWD}/bash/.bashrc
 _link ${PWD}/bash/.bash_logout
 _linkall ${PWD}/public
 
-[ -d ./bryan ] || git clone git@github.com:bryanhann/bryan
+[ -d ./bryan ] || git clone https://github.com/bryanhann/bryan.git
 ${PWD}/bryan/decrypt
 _linkall ${PWD}/bryan/private/dotfiles
