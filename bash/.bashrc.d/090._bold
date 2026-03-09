@@ -1,0 +1,8 @@
+_bold () {
+    tput setaf 1
+    tput setab 7
+    tput bold
+    echo -n $*
+    tput sgr0
+    echo
+}
