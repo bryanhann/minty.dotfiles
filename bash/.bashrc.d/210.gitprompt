@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+gitprompt () {
+    source $(github magicmonty/bash-git-prompt)/gitprompt.sh
+}
+
+bold "try gitprompt"
+

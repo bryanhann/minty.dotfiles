@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+__myvendor () {
+    local root=~/.vendor
+    mkdir -p $root
+    url=$1
+    dst=${root}/${url#https://}
+    [ -d ${dst} ] || git clone ${url} ${dst}
+    echo ${dst}
+}
+
+github () {
+    echo $(__myvendor https://github.com/$1)
+}
+
