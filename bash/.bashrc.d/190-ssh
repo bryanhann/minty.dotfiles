@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+[ -z $SSH_AGENT_PID ] && _bold starting ssh-agent
+[ -z $SSH_AGENT_PID ] && eval "$(ssh-agent -s)"
+
+ssh-add -l > /dev/null || _bold try ssh-add
+
+. ~/.ssh/activate.sh
+
+
