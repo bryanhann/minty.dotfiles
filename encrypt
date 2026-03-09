@@ -1,1 +1,0 @@
-zip -re  $(dirname $0)/crypt.zip $(dirname $0)/crypt
