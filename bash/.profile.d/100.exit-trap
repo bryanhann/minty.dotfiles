@@ -1,3 +1,9 @@
 #!/bin/bash
 
-exit () { echo try [builtin exit] ; }
+exit () {
+    cat <<EOF
+You seem to be in the login shell.
+Try 'builtin exit' or 'logout'.
+
+EOF
+}
